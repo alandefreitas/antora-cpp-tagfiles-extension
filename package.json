@@ -1,5 +1,5 @@
 {
-  "name": "antora-cpp-tagfiles-extension",
+  "name": "@alandefreitas/antora-cpp-tagfiles-extension",
   "version": "0.0.1",
   "description": "C++ Tagfiles Extension for Antora",
   "main": "lib/extension.js",
