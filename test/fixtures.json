@@ -1,0 +1,252 @@
+[
+  {
+    "name": "Unknown symbols render as themselves",
+    "tests": [
+      {
+        "input": "a",
+        "output": "a"
+      }
+    ]
+  },
+  {
+    "name": "Fundamental types include links to cppreference",
+    "tests": [
+      {
+        "input": "int",
+        "output": "https://en.cppreference.com/w/cpp/language/types#Standard_integer_types[int,window=_blank]"
+      },
+      {
+        "input": "char",
+        "output": "https://en.cppreference.com/w/cpp/language/types#Character_types[char,window=_blank]"
+      },
+      {
+        "input": "bool",
+        "output": "https://en.cppreference.com/w/cpp/language/types#Boolean_type[bool,window=_blank]"
+      },
+      {
+        "input": "void",
+        "output": "https://en.cppreference.com/w/cpp/language/types#void[void,window=_blank]"
+      }
+    ]
+  },
+  {
+    "name": "Simple symbols with no template parameters",
+    "tests": [
+      {
+        "input": "std::vector",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[std::vector,window=\"_blank\"]"
+      },
+      {
+        "input": "std::string",
+        "output": "https://en.cppreference.com/w/cpp/string/basic_string[std::string,window=\"_blank\"]"
+      },
+      {
+        "input": "std::string_view",
+        "output": "https://en.cppreference.com/w/cpp/string/basic_string_view[std::string_view,window=\"_blank\"]"
+      }
+    ]
+  },
+  {
+    "name": "Tagfiles defined in components only affect the components",
+    "tests": [
+      {
+        "input": "string_token::assign_to",
+        "output": "xref:reference:boost/urls/string_token/assign_to.adoc[string_token::assign_to]",
+        "component": "url"
+      },
+      {
+        "input": "string_token::assign_to",
+        "output": "string_token::assign_to",
+        "component": "another-component"
+      }
+    ]
+  },
+  {
+    "name": "Using namespaces defined in the Antora file",
+    "tests": [
+      {
+        "input": "vector",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[vector,window=\"_blank\"]"
+      },
+      {
+        "input": "string",
+        "output": "https://en.cppreference.com/w/cpp/string/basic_string[string,window=\"_blank\"]"
+      },
+      {
+        "input": "string_view",
+        "output": "https://en.cppreference.com/w/cpp/string/basic_string_view[string_view,window=\"_blank\"]"
+      },
+      {
+        "input": "is_charset",
+        "output": "xref:reference:boost/urls/grammar/is_charset.adoc[is_charset]",
+        "component": "url"
+      }
+    ]
+  },
+  {
+    "name": "Using namespaces defined in the Antora file",
+    "tests": [
+      {
+        "input": "vector",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[vector,window=\"_blank\"]"
+      },
+      {
+        "input": "string",
+        "output": "https://en.cppreference.com/w/cpp/string/basic_string[string,window=\"_blank\"]"
+      },
+      {
+        "input": "string_view",
+        "output": "https://en.cppreference.com/w/cpp/string/basic_string_view[string_view,window=\"_blank\"]"
+      }
+    ]
+  },
+  {
+    "name": "Template parameters",
+    "tests": [
+      {
+        "input": "std::vector<int>",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[std::vector,window=\"_blank\"]&#x3C;https://en.cppreference.com/w/cpp/language/types#Standard_integer_types[int,window=_blank]&#x3E;"
+      },
+      {
+        "input": "std::vector<std::string>",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[std::vector,window=\"_blank\"]&#x3C;https://en.cppreference.com/w/cpp/string/basic_string[std::string,window=\"_blank\"]&#x3E;"
+      },
+      {
+        "input": "std::vector<url_view>",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[std::vector,window=\"_blank\"]&#x3C;url_view&#x3E;"
+      },
+      {
+        "input": "std::vector<url_view>",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[std::vector,window=\"_blank\"]&#x3C;xref:reference:boost/urls/url_view.adoc[url_view]&#x3E;",
+        "component": "url"
+      }
+    ]
+  },
+  {
+    "name": "Nested symbols",
+    "tests": [
+      {
+        "input": "std::vector::iterator",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[std::vector::iterator,window=\"_blank\"]"
+      },
+      {
+        "input": "url_view_base::segments",
+        "output": "url_view_base::segments"
+      },
+      {
+        "input": "url_view_base::segments",
+        "output": "xref:reference:boost/urls/url_view_base/segments.adoc[url_view_base::segments]",
+        "component": "url"
+      },
+      {
+        "input": "url_view_base::segments",
+        "output": "xref:reference:boost/urls/url_view_base/segments.adoc[url_view_base::segments]",
+        "component": "url"
+      }
+    ]
+  },
+  {
+    "name": "Template parameters with nested symbols",
+    "tests": [
+      {
+        "input": "std::vector<url_view_base::segments>::iterator",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[std::vector,window=\"_blank\"]&#x3C;url_view_base::segments&#x3E;::https://en.cppreference.com/w/cpp/container/vector[std::vector::iterator,window=\"_blank\"]"
+      },
+      {
+        "input": "std::vector<url_view_base::segments>::iterator",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[std::vector,window=\"_blank\"]&#x3C;xref:reference:boost/urls/url_view_base/segments.adoc[url_view_base::segments]&#x3E;::https://en.cppreference.com/w/cpp/container/vector[std::vector::iterator,window=\"_blank\"]",
+        "component": "url"
+      }
+    ]
+  },
+  {
+    "name": "Replace target names",
+    "tests": [
+      {
+        "input": "std::vector",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[sequential container,window=\"_blank\"]",
+        "component": "url",
+        "attributes": {
+          "$positional": [
+            "sequential container"
+          ]
+        }
+      },
+      {
+        "input": "string_token::assign_to",
+        "output": "xref:reference:boost/urls/string_token/assign_to.adoc[assignment token]",
+        "component": "url",
+        "attributes": {
+          "$positional": [
+            "assignment token"
+          ]
+        }
+      },
+      {
+        "input": "string_token::assign_to",
+        "output": "assignment token",
+        "component": "another-component",
+        "attributes": {
+          "$positional": [
+            "assignment token"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Replacing target names for templated symbols does not affect the template parameters",
+    "tests": [
+      {
+        "input": "std::vector<int>",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[sequential container,window=\"_blank\"]",
+        "component": "url",
+        "attributes": {
+          "$positional": [
+            "sequential container"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Replace target names with nested symbols",
+    "tests": [
+      {
+        "input": "std::vector::iterator",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[sequential container iterator,window=\"_blank\"]",
+        "component": "url",
+        "attributes": {
+          "$positional": [
+            "sequential container iterator"
+          ]
+        }
+      },
+      {
+        "input": "url_view_base::segments",
+        "output": "xref:reference:boost/urls/url_view_base/segments.adoc[URL segments]",
+        "component": "url",
+        "attributes": {
+          "$positional": [
+            "URL segments"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Replace target names with templates and nested symbols",
+    "tests": [
+      {
+        "input": "std::vector<int>::iterator",
+        "output": "https://en.cppreference.com/w/cpp/container/vector[sequential container iterator,window=\"_blank\"]",
+        "component": "url",
+        "attributes": {
+          "$positional": [
+            "sequential container iterator"
+          ]
+        }
+      }
+    ]
+  }
+]

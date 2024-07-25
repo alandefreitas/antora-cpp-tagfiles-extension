@@ -1,0 +1,30 @@
+{
+  "name": "antora-cpp-tagfiles-extension",
+  "version": "0.0.1",
+  "description": "C++ Tagfiles Extension for Antora",
+  "main": "lib/extension.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alandefreitas/antora-cpp-tagfiles-extension.git"
+  },
+  "keywords": [
+    "antora",
+    "extension",
+    "c++",
+    "reference",
+    "documentation"
+  ],
+  "author": "Alan de Freitas",
+  "license": "BSL-1.0",
+  "bugs": {
+    "url": "https://github.com/alandefreitas/antora-cpp-tagfiles-extension/issues"
+  },
+  "homepage": "https://github.com/alandefreitas/antora-cpp-tagfiles-extension#readme",
+  "dependencies": {
+    "fast-xml-parser": "^4.4.0",
+    "he": "^1.2.0"
+  }
+}
