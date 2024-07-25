@@ -14,7 +14,7 @@ This will render as a link to the `std::vector` class in the tagfile.
 https://en.cppreference.com/w/cpp/container/vector[std::vector,window="_blank"]
 ----
 
-Which renders as "https://en.cppreference.com/w/cpp/container/vector[std::vector,window="_blank"]".
+Which renders as `https://en.cppreference.com/w/cpp/container/vector[std::vector,window="_blank"]`.
 
 The extension supports fundamental types, custom tagfiles, using namespaces directives, template parameters, nested symbols, and replacing target names.
 
