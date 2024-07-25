@@ -64,6 +64,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate README.md
+        run: |
+          sudo apt install -y pandoc asciidoc-base
+          asciidoc -b docbook README.adoc
+          pandoc -f docbook -t markdown README.xml -o README.md
+          rm README.xml
+
       - name: Publish NPM package
         run: npm publish --access public
         env:
