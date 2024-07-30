@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/alandefreitas/antora-cpp-tagfiles-extension#readme",
   "dependencies": {
-    "fast-xml-parser": "^4.4.0",
+    "fast-xml-parser": "^4.4.1",
     "he": "^1.2.0"
   }
 }
