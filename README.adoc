@@ -55,7 +55,7 @@ antora:
             - boost::core
 ----
 
-* <1> `npm` package name: `@alandefreitas/antora-mermaid-extension` (required)
+* <1> `npm` package name: `@alandefreitas/antora-cpp-tagfiles-extension` (required)
 * <2> List of tagfiles to be used by the extension
 * <3> List of namespaces to be used by the extension
 
