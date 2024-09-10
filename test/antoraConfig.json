@@ -13,7 +13,10 @@
     }
   },
   "playbook": {
-    "dir": "@dirname"
+    "dir": "@dirname",
+    "runtime": {
+      "cacheDir": null
+    }
   },
   "contentAggregate": [
     {

@@ -94,11 +94,12 @@ function parseInput(input) {
 }
 
 
-describe('The extension produces links to C++ symbols', () => {
+test('The extension produces links to C++ symbols', async (t) => {
     // ============================================================
     // Create extension object
     // ============================================================
-    const antoraConfigFileContent = fs.readFileSync("test/antoraConfig.json", 'utf8')
+    const antoraConfigPath = path.resolve(__dirname, 'antoraConfig.json')
+    const antoraConfigFileContent = fs.readFileSync(antoraConfigPath, 'utf8')
     const {config, playbook, contentAggregate} = JSON.parse(antoraConfigFileContent)
     playbook.dir = __dirname
     for (let content of contentAggregate) {
@@ -108,19 +109,32 @@ describe('The extension produces links to C++ symbols', () => {
     }
     const antoraContext = new generatorContext()
     const extension = new CppTagfilesExtension(antoraContext, {config, playbook})
-    extension.onContentAggregated({playbook, contentAggregate})
+    await extension.onContentAggregated({playbook, contentAggregate})
 
     // ============================================================
     // Load fixtures.json file with node.js built-in filesystem module
     // ============================================================
-    const fileContent = fs.readFileSync("test/fixtures.json", 'utf8')
+    const fixturesPath = path.resolve(__dirname, 'fixtures.json')
+    const fileContent = fs.readFileSync(fixturesPath, 'utf8')
     const fixtures = JSON.parse(fileContent)
+
+    await t.test('The extension object is created', () => {
+        ok(extension)
+    })
+
+    await t.test('The extension object has a process method', () => {
+        ok(extension.process)
+    })
+
+    await t.test('The fixtures file is loaded', () => {
+        ok(fixtures)
+    })
 
     // ============================================================
     // Iterate fixtures and run tests
     // ============================================================
     for (const {name, tests} of fixtures) {
-        test(name, () => {
+        await t.test(name, async () => {
             for (const {input, output, component, attributes} of tests) {
                 // Create a parent object with the component
                 // parent?.document?.getAttributes()['page-component-name'] should return the component name
@@ -143,4 +157,5 @@ describe('The extension produces links to C++ symbols', () => {
             }
         })
     }
+
 });
