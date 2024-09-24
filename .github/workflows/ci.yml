@@ -82,9 +82,19 @@ jobs:
 
 
       - name: Publish NPM package
-        run: npm publish --access public
+        run: |
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Print npm error log
+        if: failure()
+        run: |
+          # Find the latest npm debug log file and print its contents
+          LOG_FILE=$(ls -t /home/runner/.npm/_logs/*.log | head -n 1)
+          echo "Latest npm debug log file: $LOG_FILE"
+          cat $LOG_FILE
+
 
   publish-github:
     name: Publish Github Release
