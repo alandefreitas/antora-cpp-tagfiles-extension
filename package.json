@@ -1,5 +1,5 @@
 {
-  "name": "@alandefreitas/antora-cpp-tagfiles-extension",
+  "name": "@cppalliance/antora-cpp-tagfiles-extension",
   "version": "0.0.3",
   "description": "C++ Tagfiles Extension for Antora",
   "main": "lib/extension.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alandefreitas/antora-cpp-tagfiles-extension.git"
+    "url": "git+https://github.com/cppalliance/antora-cpp-tagfiles-extension.git"
   },
   "keywords": [
     "antora",
@@ -20,9 +20,9 @@
   "author": "Alan de Freitas",
   "license": "BSL-1.0",
   "bugs": {
-    "url": "https://github.com/alandefreitas/antora-cpp-tagfiles-extension/issues"
+    "url": "https://github.com/cppalliance/antora-cpp-tagfiles-extension/issues"
   },
-  "homepage": "https://github.com/alandefreitas/antora-cpp-tagfiles-extension#readme",
+  "homepage": "https://github.com/cppalliance/antora-cpp-tagfiles-extension#readme",
   "dependencies": {
     "@antora/expand-path-helper": "^2.0.0",
     "cache-directory": "^2.0.0",
